@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "casus": {
+      "type": "http",
+      "url": "https://mcp.wearecasus.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "casus",
+  "description": "Plugin Casus : recherche juridique et fiscale française sourcée (connecteur MCP Casus et cinq skills).",
+  "owner": {
+    "name": "WE ARE CASUS SAS",
+    "email": "contact@wearecasus.co"
+  },
+  "plugins": [
+    {
+      "name": "casus",
+      "source": "./"
+    }
+  ]
+}
