@@ -1,7 +1,5 @@
 # Casus
 
-![Casus](assets/logo.png)
-
 Plugin Casus pour Claude : recherche juridique et fiscale française sourcée, par WE ARE CASUS SAS, la legaltech des fiscalistes et des juristes.
 
 ## Contenu

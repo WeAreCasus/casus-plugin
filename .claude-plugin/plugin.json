@@ -1,7 +1,7 @@
 {
   "name": "casus",
   "displayName": "Casus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recherche juridique et fiscale française sourcée avec le connecteur Casus : codes à date, jurisprudence, BOFIP, EUR-Lex, conventions fiscales, et cinq skills (méthode, vérification des références, comparaison de versions, recherche à date, réponse à une proposition de rectification).",
   "author": {
     "name": "WE ARE CASUS SAS",
@@ -11,10 +11,5 @@
   "homepage": "https://mcp.wearecasus.com/",
   "repository": "https://github.com/WeAreCasus/casus-plugin",
   "license": "LicenseRef-WeAreCasus-Proprietary",
-  "keywords": ["droit", "fiscalité", "jurisprudence", "BOFIP", "legal", "tax", "France"],
-  "icon": "./assets/logo.png",
-  "documentationUrl": "https://mcp.wearecasus.com/",
-  "supportUrl": "https://wearecasus.co/contact-us",
-  "privacyPolicyUrl": "https://wearecasus.co/privacy-policy",
-  "termsOfServiceUrl": "https://wearecasus.co/conditions-generales"
+  "keywords": ["droit", "fiscalité", "jurisprudence", "BOFIP", "legal", "tax", "France"]
 }
