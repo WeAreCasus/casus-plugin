@@ -58,8 +58,7 @@ L'essentiel : l'historique des codes varie selon le code (une date antérieure �
 - **« Absent du corpus Casus », « introuvable »** : dites-le ainsi ; pour une décision, regardez les numéros proches (faute de frappe) et essayez `search` avec le numéro, la juridiction et l'objet (certaines décisions sont enregistrées sous un autre numéro).
 - **`get_decision`** : un écart (date, chambre, nature) est signalé en tête ; plusieurs décisions de même numéro sont toutes listées : ne choisissez pas.
 - **`get_bofip`** : citez la date de la version lue.
-- **Texte coupé** : le repère de fin (« Texte coupé ici… Non lu : … Suite : fetch(…, offset=…) ») nomme ce qui n'a pas été lu. Ne citez rien de ce qui est nommé non lu ; lisez la partie utile avec `fetch(id, offset)` à l'offset de sa subdivision. Un article long ou groupé se lit par partie, seul dans son appel. Une décision en mode concis donne l'ouverture, les considérants omis nommés, puis le dispositif (ou la conclusion d'une conclusion d'avocat général) : pour citer un motif omis, lisez-le.
-- **Versions d'un article dans `search`** : la version en vigueur passe avant les versions remplacées, et l'avertissement le dit. Une version remplacée ne se cite pas pour le droit actuel.
+- **Texte coupé** : suivez `offset` ou `next_offset` avant de citer au-delà.
 - **Échec de lecture** d'un document que `search` a trouvé : citez l'extrait de `search` avec son lien, en disant que le texte complet n'a pas pu être lu. Un délai dépassé donne INDÉTERMINÉ, jamais une absence.
 
 Statuts de `resolve_references` : **trouvée** (vérifiez vous-même chambre, matière et passage cité, que l'outil ne compare pas) ; **trouvée avec écart** (corrigez selon la note) ; **ambiguë** (comparez les candidats ; aucun ne correspond : non confirmée) ; **introuvable** (recoupez avant toute conclusion) ; **non applicable à la date** (cherchez le texte de cette date) ; **indéterminée à la date** (ne concluez pas).
@@ -86,11 +85,9 @@ Chaque requête vise une source, deux au plus, et s'écrit dans la langue de cet
 | `bofip` | La phrase du commentaire : « Les dépenses de réparation et d'entretien s'entendent des dépenses qui ont pour objet de maintenir ou de remettre en état un immeuble… » (le BOI qui définit ces dépenses sort en tête) ; « il est admis que », la série BOI si elle est connue | Une question familière (« quels travaux je peux déduire de mes loyers ? » ne fait pas sortir ce BOI) |
 | `jurisprudences` | Les faits et le critère discuté : « rémunération du dirigeant jugée excessive au regard du travail effectif fourni et des rémunérations versées dans des entreprises similaires » (une décision du Conseil d'État sur ce critère sort en tête) | Recopier l'article ou écrire « article 39 » : toutes les décisions qui le citent remontent, et `search` renvoie vers `get_code_article` |
 | `reponses_ministerielles` | La question pratique telle qu'un parlementaire la pose | — |
-| `conventions_fiscales` | Le nom du pays seul (« Tunisie », jamais « franco-tunisienne », qui fait remonter les conventions d'autres pays) et la catégorie de revenu ; `pays="Tunisie"` restreint la recherche à ce pays (valeur de `catalogue(type="conventions")`) | Un numéro d'article supposé (l'article sur les dividendes de la convention avec la Tunisie est le 14, non le 10) |
+| `conventions_fiscales` | Le nom du pays seul (« Tunisie », jamais « franco-tunisienne », qui fait remonter les conventions d'autres pays) et la catégorie de revenu | Un numéro d'article supposé (l'article sur les dividendes de la convention avec la Tunisie est le 14, non le 10) |
 | `eur_lex` | Le numéro de l'acte d'un seul tenant (« 2006/112/CE », jamais « 2006 112 CE » ni « EC ») et la notion harmonisée | — |
 | `blogs` | L'opération, la réforme et l'année | — |
-
-Pour les codes, `etat` restreint aux états demandés (`VIGUEUR`, `VIGUEUR_DIFF`, `MODIFIE`, `MODIFIE_MORT_NE`, `ABROGE`, `ABROGE_DIFF`, `ANNULE`, `TRANSFERE`). Les filtres `etat` et `pays` ne prouvent rien : l'état n'est pas toujours à jour, et une liste vide ne prouve pas l'absence d'une convention ou d'un article (relisez avec `get_convention_fiscale` ou `get_code_article`).
 
 À partir du niveau 2, une question fiscale comporte au moins une recherche en jurisprudence ; aux niveaux 3 et 4, une aussi en réponses ministérielles.
 

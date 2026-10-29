@@ -25,7 +25,7 @@ Les lois elles-mêmes ne sont pas une source : leurs dispositions non codifiées
 | Lire un BOI ou une actualité | `get_bofip` | le mode concis donne le sommaire avec l'offset de chaque section ; `detail="complet"` et `offset` pour une section |
 | Lire une convention fiscale | `get_convention_fiscale` | `pays` en français ; sans `article`, la liste des articles |
 | Vérifier des citations | `resolve_references` | `texte` (jusqu'à 100 000 caractères) ou `references` (50 au plus), `date` |
-| Question ouverte | `search`, puis `fetch` | une ou deux `sources` par appel ; `texte_integral=true` quand vous lirez de toute façon plusieurs des décisions trouvées ; `pays` (conventions) et `etat` (codes) filtrent en amont |
+| Question ouverte | `search`, puis `fetch` | une ou deux `sources` par appel ; `texte_integral=true` quand vous lirez de toute façon plusieurs des décisions trouvées |
 | Formulation exacte, numéro de loi | `search_text` | une seule `source` ; `code` ou `serie` ; une seule expression entre guillemets par requête ; accents obligatoires |
 | Nom de code, pays, juridiction ; couverture | `catalogue` | `type` = `codes`, `conventions`, `juridictions`, `sources` |
 | Trouver un article sans son numéro | `get_code_plan` | `code`, `article` pour ses voisins, `chemin` pour déplier |
