@@ -9,6 +9,9 @@
     "url": "https://wearecasus.co/"
   },
   "privacyPolicyUrl": "https://wearecasus.co/privacy-policy",
+  "termsOfServiceUrl": "https://wearecasus.co/conditions-generales",
+  "supportUrl": "https://wearecasus.co/contact-us",
+  "documentationUrl": "https://mcp.wearecasus.com/",
   "homepage": "https://mcp.wearecasus.com/",
   "repository": "https://github.com/WeAreCasus/casus-plugin",
   "license": "LicenseRef-WeAreCasus-Proprietary",
