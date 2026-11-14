@@ -26,6 +26,25 @@ Depuis l'annuaire de claude.ai (Paramètres > Plugins), ou dans Claude Code :
 /plugin install casus --marketplace WeAreCasus/casus-plugin
 ```
 
+## Télécharger une skill
+
+Chaque skill se télécharge aussi seule, en archive `.zip` (le dossier de la skill à la racine), pour l'ajouter à un assistant sans installer le plugin. Les adresses pointent toujours sur la dernière version publiée :
+
+| Skill | Archive |
+|---|---|
+| `methode-casus` | https://github.com/WeAreCasus/casus-plugin/releases/latest/download/methode-casus.zip |
+| `verification-references` | https://github.com/WeAreCasus/casus-plugin/releases/latest/download/verification-references.zip |
+| `comparaison-versions` | https://github.com/WeAreCasus/casus-plugin/releases/latest/download/comparaison-versions.zip |
+| `recherche-a-date` | https://github.com/WeAreCasus/casus-plugin/releases/latest/download/recherche-a-date.zip |
+| `reponse-proposition-rectification` (offres Pro, essai et organisation) | https://github.com/WeAreCasus/casus-plugin/releases/latest/download/reponse-proposition-rectification.zip |
+
+Deux archives regroupent les skills :
+
+- toutes les skills : https://github.com/WeAreCasus/casus-plugin/releases/latest/download/casus-skills.zip
+- sans `reponse-proposition-rectification` : https://github.com/WeAreCasus/casus-plugin/releases/latest/download/casus-skills-starter.zip
+
+Les skills appellent les outils du connecteur MCP Casus : installez-le d'abord (voir Prérequis). Les archives sont construites à chaque tag `v*` par `.github/workflows/release.yml` ; le tag doit être la version de `.claude-plugin/plugin.json`. Pour les construire sur votre poste : `.github/scripts/build-archives.sh dist`.
+
 ## Données
 
 Le plugin n'envoie de données qu'au serveur MCP Casus déclaré dans `.mcp.json` : les requêtes et références que Claude transmet aux outils du connecteur. Aucune autre destination. Les scripts des skills (`scripts/delais.py`, `scripts/comparer_versions.py`) utilisent uniquement la bibliothèque standard Python, sans accès réseau : ils calculent des délais et comparent deux textes fournis. Politique de confidentialité : https://wearecasus.co/privacy-policy
