@@ -24,7 +24,32 @@ jobs:
           fi
 
       - name: Construire les archives
-        run: .github/scripts/build-archives.sh dist
+        # Une archive <nom>.zip par dossier de skills/ (le dossier de la skill à la racine),
+        # casus-skills.zip (toutes les skills) et casus-skills-starter.zip (sans la skill
+        # réservée aux offres Pro, essai et organisation). Pas de script .sh dans le dépôt :
+        # l'annuaire Claude refuse les fichiers exécutables d'une organisation non vérifiée.
+        run: |
+          set -euo pipefail
+          PRO_ONLY="reponse-proposition-rectification"
+          out="$PWD/dist"
+          mkdir -p "$out"
+          cd skills
+          for skill in */; do
+            skill="${skill%/}"
+            test -f "$skill/SKILL.md" || { echo "skills/$skill n'a pas de SKILL.md" >&2; exit 1; }
+            zip -qrX "$out/$skill.zip" "$skill"
+          done
+          test -d "$PRO_ONLY" || { echo "skills/$PRO_ONLY est introuvable" >&2; exit 1; }
+          zip -qrX "$out/casus-skills.zip" .
+          zip -qrX "$out/casus-skills-starter.zip" . -x "$PRO_ONLY/*"
+          # Contrôle : chaque archive contient un SKILL.md, l'archive Starter pas la skill Pro.
+          for archive in "$out"/*.zip; do
+            unzip -Z1 "$archive" '*/SKILL.md' > /dev/null || { echo "$archive ne contient aucun SKILL.md" >&2; exit 1; }
+          done
+          if unzip -Z1 "$out/casus-skills-starter.zip" "$PRO_ONLY/*" > /dev/null 2>&1; then
+            echo "casus-skills-starter.zip contient $PRO_ONLY" >&2; exit 1
+          fi
+          ls -1 "$out"
 
       - name: Publier la release
         env:

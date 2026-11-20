@@ -47,7 +47,7 @@ Les skills appellent les outils du connecteur MCP Casus : installez-le d'abord (
 
 ## Données
 
-Le plugin n'envoie de données qu'au serveur MCP Casus déclaré dans `.mcp.json` : les requêtes et références que Claude transmet aux outils du connecteur. Aucune autre destination. Les scripts des skills (`scripts/delais.py`, `scripts/comparer_versions.py`) utilisent uniquement la bibliothèque standard Python, sans accès réseau : ils calculent des délais et comparent deux textes fournis. Politique de confidentialité : https://wearecasus.co/privacy-policy
+Le plugin n'envoie de données qu'au serveur MCP Casus déclaré dans `.mcp.json` : les requêtes et références que Claude transmet aux outils du connecteur. Aucune autre destination. Politique de confidentialité : https://wearecasus.co/privacy-policy
 
 ## Support
 

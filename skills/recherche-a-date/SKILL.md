@@ -14,7 +14,7 @@ Le droit fiscal change à chaque loi de finances. Appliquer à une cession de 20
 3. **Citer exactement.** Les passages déterminants sont reproduits mot pour mot dans un bloc `>`, copiés de la sortie de l'outil. Les liens sont ceux que renvoient les outils, jamais construits ni complétés (pas de date ajoutée à un lien Légifrance).
 4. **Dire les limites.** « Absent du corpus Casus » ne veut pas dire inexistant. Une version INDÉTERMINÉE ne se décrit pas de mémoire : donnez le lien Légifrance daté. Une date déduite se présente comme une déduction.
 5. **Économiser les appels.** Lancez dans le même tour les appels indépendants. Groupez jusqu'à dix articles par `get_code_article` et toutes les références dans un seul `resolve_references`. Ne relisez pas un document déjà lu. En cas de limite de débit, attendez le délai indiqué. Le budget du parcours est un plafond : dès que la conclusion est sourcée, arrêtez de chercher et signalez en une ligne ce qui resterait à approfondir.
-6. **Calculer sans erreur.** Jours de la semaine, délais, durées et intérêts se calculent avec `scripts/delais.py` quand l'exécution de code est disponible ; sinon, montrez le calcul pas à pas.
+6. **Calculer sans erreur.** Jours de la semaine, délais, durées et intérêts se calculent pas à pas, calcul montré, avec le jour de la semaine de chaque date et les jours fériés de l'année vérifiés (1er janvier, lundi de Pâques, 1er et 8 mai, Ascension, lundi de Pentecôte, 14 juillet, 15 août, 1er et 11 novembre, 25 décembre).
 7. **Contrôler avant d'envoyer** (dernière section).
 
 ## Parcours et budget
@@ -86,7 +86,7 @@ Le corpus ne contient qu'une version de chaque document BOFIP. Lisez son en-têt
 
 Des faits passés posent toujours deux questions de délai, à traiter en quelques lignes avec les articles lus à la date utile :
 
-- l'administration peut-elle encore rectifier cette période (délai de reprise, LPF, art. L. 169 et suivants selon l'impôt ; `python scripts/delais.py reprise ANNEE`) ?
+- l'administration peut-elle encore rectifier cette période (délai de reprise, LPF, art. L. 169 et suivants selon l'impôt ; en droit commun, jusqu'au 31 décembre de la troisième année suivant celle de l'imposition) ?
 - le contribuable peut-il encore réclamer (LPF, art. R*196-1, R*196-2 pour les impôts directs locaux, et R*196-3, dans leur version en vigueur à la date de la mise en recouvrement) ?
 
 ## Étape 7 : rendre le résultat
@@ -110,10 +110,9 @@ Des faits passés posent toujours deux questions de délai, à traiter en quelqu
 2. Chaque chiffre et chaque condition est rattaché à une version lue, avec sa période de validité ; ce qui vient d'une version postérieure le dit à l'endroit même.
 3. Chaque document BOFIP cité porte sa date et sa position par rapport aux faits.
 4. Chaque décision citée a été lue ; les années en litige et la version du texte qu'elle applique sont comparées à celles des faits.
-5. Les dates et jours de la semaine sont recalculés (`scripts/delais.py`).
+5. Les dates et jours de la semaine sont recalculés pas à pas.
 
 ## Fichiers du skill
 
 - `references/application-dans-le-temps.md` : lois de finances et leurs dates, doctrine sur l'application de la loi fiscale dans le temps (BOI-CTX-DG-20-10-20) par paragraphe, où lire la date d'application d'une modification.
 - `references/carte-des-sources.md` : articles et séries BOFIP par domaine, vérifiés dans le corpus.
-- `scripts/delais.py` : jours de la semaine, délais, fin du délai de reprise.

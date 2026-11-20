@@ -60,9 +60,9 @@ Comparez par subdivision (I, II, 1°, a., alinéas) et relevez :
 - les conditions ajoutées ou supprimées, le champ d'application, les exclusions ;
 - les renvois modifiés vers d'autres articles.
 
-Une modification d'un seul chiffre au milieu d'un long article se manque facilement. Si l'exécution de code est disponible, enregistrez les deux textes en les recopiant intégralement depuis la sortie de l'outil (le script ne compare que ce que vous avez enregistré) et lancez `python scripts/comparer_versions.py ancienne.txt nouvelle.txt` (bibliothèque standard seulement) : il liste chaque modification avec son contexte et les chiffres qui apparaissent ou disparaissent. Sinon, comparez subdivision par subdivision en recopiant les deux rédactions côte à côte.
+Une modification d'un seul chiffre au milieu d'un long article se manque facilement. Comparez subdivision par subdivision en recopiant les deux rédactions côte à côte, puis relevez les nombres, pourcentages, montants et durées de chacune : un chiffre présent dans une seule des deux rédactions est une modification.
 
-Pour affirmer que le reste de l'article est inchangé, il faut avoir comparé tout le texte (script, ou chaque subdivision) : une longueur égale ne le prouve pas.
+Pour affirmer que le reste de l'article est inchangé, il faut avoir comparé tout le texte, subdivision par subdivision : une longueur égale ne le prouve pas.
 
 Les citations reprennent mot pour mot le texte renvoyé par l'outil.
 
@@ -107,12 +107,11 @@ Chaque version est citée avec sa période de validité et son lien Légifrance,
 ## Contrôle avant envoi
 
 1. Passez le brouillon entier à `resolve_references(texte=…)` : chaque article cité existe, et sa version est celle que vous datez.
-2. Chaque « rien d'autre n'a changé » repose sur une comparaison complète (script ou subdivision par subdivision), jamais sur une longueur égale.
+2. Chaque « rien d'autre n'a changé » repose sur une comparaison complète, subdivision par subdivision, jamais sur une longueur égale.
 3. Chaque rédaction citée en bloc `>` est une copie de la sortie de l'outil, pour la bonne version.
 4. Le texte modificatif et sa date d'application sortent d'une source lue, ou sont présentés comme probables ou inconnus.
 5. Le tableau des changements et la synthèse disent la même chose.
 
 ## Fichiers du skill
 
-- `scripts/comparer_versions.py` : comparaison mot à mot de deux textes, avec les chiffres qui apparaissent ou disparaissent.
 - `references/application-dans-le-temps.md` : lois de finances récentes et leurs dates, où lire la date d'application d'une modification.
