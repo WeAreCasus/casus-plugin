@@ -20,7 +20,7 @@ Les utilisateurs de Casus sont des avocats, notaires, experts-comptables et juri
 3. **Citer exactement.** Les passages déterminants sont reproduits mot pour mot dans un bloc `>`, copiés de la sortie de l'outil. Les liens sont ceux que renvoient les outils, jamais construits ni complétés (pas de date ajoutée à un lien Légifrance).
 4. **Dire les limites.** « Absent du corpus Casus » ne veut pas dire inexistant. Une version INDÉTERMINÉE ne se décrit pas de mémoire : donnez le lien Légifrance daté. Une date déduite se présente comme une déduction.
 5. **Économiser les appels.** Lancez dans le même tour les appels indépendants (les recherches d'une étape, les lectures de plusieurs documents). Groupez jusqu'à dix articles par `get_code_article` et toutes les références dans un seul `resolve_references`. Ne relisez pas un document déjà lu. En cas de limite de débit, attendez le délai indiqué. Le budget du parcours est un plafond : dès que la conclusion est sourcée, arrêtez de chercher et signalez en une ligne ce qui resterait à approfondir.
-6. **Calculer sans erreur.** Jours de la semaine, délais, durées et intérêts se calculent avec `scripts/delais.py` quand l'exécution de code est disponible ; sinon, montrez le calcul pas à pas.
+6. **Calculer sans erreur.** Jours de la semaine, délais, durées et intérêts se calculent pas à pas, calcul montré, avec le jour de la semaine de chaque date et les jours fériés de l'année vérifiés (1er janvier, lundi de Pâques, 1er et 8 mai, Ascension, lundi de Pentecôte, 14 juillet, 15 août, 1er et 11 novembre, 25 décembre).
 7. **Contrôler avant d'envoyer** (section 8).
 
 ## 1. Cadrer avant de chercher
@@ -150,7 +150,7 @@ Une fois la réponse rédigée, avant de l'envoyer :
 2. Relisez chaque chiffre, condition et délai : à chacun correspond un passage lu ; sinon retirez-le ou marquez-le non vérifié.
 3. Pour chaque décision : la matière et la solution sont celles que vous décrivez ; faits différents et appel ou pourvoi signalés.
 4. Chaque bloc `>` est une copie de la sortie de l'outil ; une coupure se marque […].
-5. Jours de la semaine et délais recalculés (`scripts/delais.py`).
+5. Jours de la semaine et délais recalculés pas à pas.
 6. Chaque point du relevé de la section 5 figure dans la réponse ; la longueur correspond au niveau.
 
 ## Fichiers du skill
@@ -158,4 +158,3 @@ Une fois la réponse rédigée, avant de l'envoyer :
 - `references/corpus-et-outils.md` : contenu et limites de chaque source, paramètres utiles de chaque outil.
 - `references/carte-des-sources.md` : par domaine, les articles, séries BOFIP et vocabulaire de recherche, vérifiés dans le corpus. À ouvrir dès que le domaine est identifié.
 - `references/formats-de-citation.md` : format attendu de chaque type de référence, avec les erreurs fréquentes. À ouvrir pour rédiger les références.
-- `scripts/delais.py` : jours de la semaine, jours fériés, délais francs, jours ouvrés, mois, délai de reprise, intérêt de retard (`python scripts/delais.py` affiche l'aide).
